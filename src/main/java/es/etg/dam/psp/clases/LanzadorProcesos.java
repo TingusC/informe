@@ -15,13 +15,21 @@ import lombok.Data;
 public class LanzadorProcesos implements Lanzador{
 
     String comando;
+    String parametro;
     String[] datos;
 
     @Override
     public String ejecutar() throws IOException{
 
+        String[] comandoFinal = {this.comando};
 
-        Process process = Runtime.getRuntime().exec(comando);
+        if(parametro != null)
+        {
+            String[] comandoParam = {this.comando, this.parametro};
+            comandoFinal = comandoParam;
+        }
+
+        Process process = Runtime.getRuntime().exec(comandoFinal);
 
         if(datos != null)
         {

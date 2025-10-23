@@ -20,7 +20,7 @@ public class Main {
         List<String> resultados = new ArrayList<>();
         for(String comando : COMANDOS)
         {
-            Lanzador proceso = new LanzadorProcesos(comando, null);
+            Lanzador proceso = new LanzadorProcesos(comando, null,null);
             resultados.add(proceso.ejecutar());
         }
         salida = formatear(COMANDOS, resultados);
